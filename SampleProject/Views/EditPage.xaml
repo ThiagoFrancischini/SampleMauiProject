@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleProject.Views.EditPage"
+             xmlns:local="clr-namespace:SampleProject.ViewModels"
+             x:DataType="local:EditViewModel"
+             Title="EditPage">
+    
+    <VerticalStackLayout Spacing="15" Padding="20">
+        <Label Text="Editando Registro" FontSize="Title" HorizontalOptions="Center" />
+
+        <Entry Placeholder="Título" Text="{Binding Entry.Title}" />
+        <Editor Placeholder="Descrição" Text="{Binding Entry.Description}" HeightRequest="100" />
+
+        <DatePicker Date="{Binding Entry.Date}" />
+
+        <Button Text="ATUALIZAR" 
+            Command="{Binding SaveCommand}" 
+            TextColor="White" />
+    </VerticalStackLayout>
+</ContentPage>

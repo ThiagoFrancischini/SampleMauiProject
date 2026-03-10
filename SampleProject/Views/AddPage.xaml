@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleProject.Views.AddPage"
+             xmlns:viewModels="clr-namespace:SampleProject.ViewModels"
+             x:DataType="viewModels:AddViewModel"
+             Title="AddPage">
+    
+    <VerticalStackLayout Spacing="15" Padding="20">
+        <Entry Placeholder="Onde você foi?" 
+           Text="{Binding Entry.Title}" />
+
+        <Editor Placeholder="Conte os detalhes..." 
+            Text="{Binding Entry.Description}" 
+            HeightRequest="100" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Nota da viagem:" VerticalOptions="Center" />
+            <Stepper Minimum="1" Maximum="5" Value="{Binding Entry.Rating}" />
+            <Label Text="{Binding Entry.Rating}" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <DatePicker Date="{Binding Entry.Date}" />
+
+        <Button Text="Tirar Foto" Command="{Binding TakePhotoCommand}" />
+        <Image Source="{Binding Entry.ImagePath}" HeightRequest="150" />
+
+        <Button Text="SALVAR" Command="{Binding SaveCommand}" BackgroundColor="#512BD4" />
+    </VerticalStackLayout>
+</ContentPage>
